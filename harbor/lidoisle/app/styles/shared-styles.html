@@ -1,0 +1,27 @@
+<!-- shared styles for all elements and index.html -->
+<dom-module id="shared-styles">
+  <template>
+    <style>
+    
+      #header h1,
+      #header p {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .page-title {
+        @apply(--paper-font-display2);
+      }
+
+      @media (max-width: 600px) {
+        .page-title {
+          font-size: 24px!important;
+        }
+      }
+      paper-button {
+        background: var(--default-primary-color);
+        color: #fff;
+      }
+    </style>
+  </template>
+</dom-module>
