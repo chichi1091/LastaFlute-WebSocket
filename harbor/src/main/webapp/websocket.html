@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebSocketテスト</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+            var socket;
+            $(document).ready(function(){
+                var host="ws://localhost:8090/harbor/wschat";
+                socket = new WebSocket(host);
+
+                socket.onmessage = function(message){
+                    $('#log').append(message.data + "<br/>");
+                }
+
+                $('#send').click(function(){
+                    var text = $('#msg').val();
+                    socket.send(text);
+                    $('#msg').val('');
+                })
+
+            });
+        </script>
+</head>
+<body>
+<h1>WebSocketテスト</h1>
+<div id="log">
+</div>
+<input id="msg" type="text"/>
+<button id="send">送信</button>
+</body>
+</html>

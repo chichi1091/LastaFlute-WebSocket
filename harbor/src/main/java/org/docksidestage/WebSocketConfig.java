@@ -2,8 +2,10 @@ package org.docksidestage;
 
 import org.apache.tomcat.websocket.server.Constants;
 import org.apache.tomcat.websocket.server.WsContextListener;
+import org.docksidestage.app.ws.WsChatAction;
 
 import javax.servlet.ServletContextEvent;
+import javax.websocket.DeploymentException;
 import javax.websocket.server.ServerContainer;
 
 /**
@@ -16,10 +18,10 @@ public class WebSocketConfig extends WsContextListener {
         ServerContainer sc =
                 (ServerContainer) sce.getServletContext().getAttribute(
                         Constants.SERVER_CONTAINER_SERVLET_CONTEXT_ATTRIBUTE);
-//        try {
-//            sc.addEndpoint(TestServlet.class);
-//        } catch (DeploymentException e) {
-//            throw new IllegalStateException(e);
-//        }
+        try {
+            sc.addEndpoint(WsChatAction.class);
+        } catch (DeploymentException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }
