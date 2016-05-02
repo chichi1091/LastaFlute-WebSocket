@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.docksidestage</groupId>
 	<artifactId>harbor</artifactId>
@@ -154,7 +154,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore /> <!-- to avoid warning -->
+										<ignore/> <!-- to avoid warning -->
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
@@ -219,6 +219,10 @@
 		</repository>
 	</repositories>
 
+	<modules>
+		<module>../tomcat-boot</module>
+	</modules>
+
 	<dependencies>
 		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 		<!--                                                                Main Framework -->
@@ -279,11 +283,23 @@
 
 		<!-- boot -->
 		<dependency>
-			<groupId>org.dbflute.jetty</groupId>
-			<artifactId>jetty-boot</artifactId>
-			<version>${jetty.boot.version}</version>
+			<groupId>org.dbflute.tomcat</groupId>
+			<artifactId>tomcat-boot</artifactId>
+			<version>0.4.4</version>
 		</dependency>
- 
+
+		<!-- tomcat -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-websocket</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+
 		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 		<!--                                                          GoodNeighbor Library -->
 		<!--                                                           = = = = = = = = = = -->
@@ -315,11 +331,11 @@
 			<version>${utflute.version}</version>
 			<scope>test</scope>
 		</dependency>
-       	<dependency> <!-- for lastadoc -->
-           	<groupId>com.github.javaparser</groupId>
-           	<artifactId>javaparser-core</artifactId>
-           	<version>${javaparser.version}</version>
+		<dependency> <!-- for lastadoc -->
+			<groupId>com.github.javaparser</groupId>
+			<artifactId>javaparser-core</artifactId>
+			<version>${javaparser.version}</version>
 			<scope>test</scope>
-       	</dependency>
+		</dependency>
 	</dependencies>
 </project>

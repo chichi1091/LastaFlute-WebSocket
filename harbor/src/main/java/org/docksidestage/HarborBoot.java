@@ -15,7 +15,6 @@
  */
 package org.docksidestage;
 
-import org.dbflute.jetty.JettyBoot;
 
 /**
  * @author jflute
@@ -23,7 +22,7 @@ import org.dbflute.jetty.JettyBoot;
 public class HarborBoot { // #change_it_first
 
     public static void main(String[] args) { // e.g. java -Dlasta.env=production -jar harbor.war
-        new JettyBoot(8090, "/harbor").asDevelopment(isNoneEnv()).bootAwait();
+        new CustomTomcatBoot(8090, "/harbor").asDevelopment(isNoneEnv()).bootAwait();
     }
 
     private static boolean isNoneEnv() {

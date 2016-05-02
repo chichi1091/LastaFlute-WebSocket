@@ -9,7 +9,7 @@
 	<!--                                                                    ============== -->
 	<filter>
 		<filter-name>lastaFilter</filter-name>
-		<filter-class>org.lastaflute.web.LastaFilter</filter-class>
+		<filter-class>org.docksidestage.app.CustomFilter</filter-class>
 	</filter>
 
 	<!-- ================================================================================= -->
